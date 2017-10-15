@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Models from './../lib/Models';
+import models from './../models';
 import axios from 'axios';
 
 type Props = {};
@@ -30,9 +30,9 @@ export default class Counter extends React.Component<Props, State> {
     }
 
     _incBrowserCount() {
-        Models.counter.inc();
+        models.counter.inc();
         this.setState(
-            (state) => ({ ...state, browserCount: Models.counter.get() })
+            (state) => ({ ...state, browserCount: models.counter.get() })
         );
     }
 

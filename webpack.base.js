@@ -12,20 +12,22 @@ var babelOptions = {
 };
 
 var moduleOptions = {
-    rules: [{
-        test: /\.ts(x?)$/,
-        exclude: /node_modules/,
-        use: [
-            // { loader: 'babel-loader', options: babelOptions },
-            { loader: 'ts-loader' }
-        ]
-    }, {
-        test: /\.js(x?)$/,
-        exclude: /node_modules/,
-        use: [
-            { loader: 'babel-loader', options: babelOptions }
-        ]
-    }]
+    rules: [
+        {
+            test: /\.ts(x?)$/,
+            exclude: /node_modules/,
+            use: [
+                { loader: 'ts-loader' }
+            ]
+        },
+        {
+            test: /\.js(x?)$/,
+            exclude: /node_modules/,
+            use: [
+                { loader: 'babel-loader', options: babelOptions }
+            ]
+        },
+    ]
 };
 
-module.exports = {moduleOptions};
+module.exports = { moduleOptions };

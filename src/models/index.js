@@ -1,5 +1,5 @@
 class Counter {
-	counter: number;
+	// counter: number;
 	constructor() {
 		this.counter = 0;
 	}
@@ -16,4 +16,4 @@ class Counter {
 
 export default {
 	counter: new Counter()
-};
+}

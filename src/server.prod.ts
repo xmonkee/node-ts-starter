@@ -1,6 +1,6 @@
 import * as path from 'path';
 import * as express from 'express';
-import api from './src/api';
+import api from './api';
 
 const app = express()
 const root = path.resolve(__dirname, 'dist');
