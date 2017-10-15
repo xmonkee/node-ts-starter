@@ -1,19 +1,19 @@
 class Counter {
-	// counter: number;
+	private counter: number;
 	constructor() {
 		this.counter = 0;
 	}
-	inc() {
+	public inc() {
 		this.counter += 1;
 	}
-	dec() {
+	public dec() {
 		this.counter -= 1;
 	}
-	get() {
+	public get() {
 		return this.counter;
 	}
 }
 
 export default {
-	counter: new Counter()
-}
+	counter: new Counter(),
+};

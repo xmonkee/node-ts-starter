@@ -9,14 +9,12 @@ const clientConfig = {
         filename: 'index.js',
         path: path.resolve(__dirname, 'dist'),
     },
-    // devtool: 'inline-source-map',
     plugins: [
         new HTMLWebpackPlugin({
             template: path.resolve(__dirname, 'src/index.html'),
             filename: 'index.html',
             inject: 'body',
         }),
-        //new UglifyJSPlugin(),
     ],
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.jsx']
