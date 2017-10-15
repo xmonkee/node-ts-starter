@@ -3,9 +3,35 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const nodeExternals = require('webpack-node-externals');
 
+var babelOptions = {
+    "presets": [
+        "react",
+        [ "es2015", { "modules": false } ],
+        "es2016"
+    ]
+};
+
+var moduleOptions = {
+    rules: [{
+        test: /\.ts(x?)$/,
+        exclude: /node_modules/,
+        use: [
+            // { loader: 'babel-loader', options: babelOptions },
+            { loader: 'ts-loader' }
+        ]
+    }, {
+        test: /\.js(x?)$/,
+        exclude: /node_modules/,
+        use: [
+            { loader: 'babel-loader', options: babelOptions }
+        ]
+    }]
+}; 
+
+
 const clientConfig = {
     target: 'web',
-    entry:'./src/index.js',
+    entry:'./src/index.tsx',
     output: {
         filename: 'index.js',
         path: path.resolve(__dirname, 'dist'),
@@ -19,18 +45,10 @@ const clientConfig = {
         }),
         //new UglifyJSPlugin(),
     ],
-    module: {
-        loaders: [
-            {
-                test: /.jsx?$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/,
-                query: {
-                    presets: ['es2015', 'react']
-                }
-            },
-        ],
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js', '.jsx']
     },
+    module: moduleOptions,
 };
 
 var serverConfig = {
@@ -38,25 +56,17 @@ var serverConfig = {
     node: {
         __dirname: true,
     },
-    entry: './server.js',
+    entry: './server.ts',
     externals: [nodeExternals()],
     output: {
         filename: 'server.js',
         path: path.resolve(__dirname, 'dist'),
     },
     devtool: 'inline-source-map',
-    module: {
-        loaders: [
-            {
-                test: /.jsx?$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/,
-                query: {
-                    presets: ['es2015', 'react']
-                }
-            },
-        ],
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js', 'jsx']
     },
+    module: moduleOptions,
 };
 
 module.exports = [clientConfig, serverConfig];
