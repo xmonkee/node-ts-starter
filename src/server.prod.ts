@@ -8,6 +8,6 @@ const root = path.resolve(__dirname, 'dist');
 app.use(express.static('dist'));
 app.use('/api', api);
 
-app.listen(3000, function() {
+app.listen(80, function() {
 	console.log('Listening');
 });

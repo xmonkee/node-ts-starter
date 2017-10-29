@@ -1,0 +1,11 @@
+docker run \
+    --detach \
+    --tty \
+    --rm \
+    --name "$(basename $(pwd))-dev" \
+    --expose 80 \
+    --publish 3000:80 \
+    --workdir /app \
+    --volume "$(pwd)":/app \
+    node:8.8-slim \
+    bash
