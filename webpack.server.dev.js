@@ -1,7 +1,6 @@
-const WebpackOnBuildPlugin = require('on-build-webpack');
 const serverConfig = require('./webpack.server.js');
 module.exports = {
     ...serverConfig, 
-    entry: './src/server.dev.ts',
+    entry: './src/server.ts',
     devtool: 'inline-source-map',
 };

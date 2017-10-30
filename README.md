@@ -44,17 +44,14 @@ $ yarn install
 $ yarn dev
 ```
 
-This will start compile the server in `watch` mode. Webpack will
-rebuild the server every time the server code is changed.
+This will start compilation in `watch` mode. Webpack will
+rebuild the server and client every time the server code is changed.
 
 ```
-$ yarn serve
+$ yarn devserve
 ```
 
-This will start the server which uses `webpack-dev-middleware` to
-compile and serve the client code (via `index.js`). The compiled
-client code resides in-memory and will recompile at every change. The server
-will also block any requests till this recompilation is complete.
+This will start the server in `watch` mode. It will restart when the code changes.
 
 Both the above commands should be running in different terminals for full
 recompile on watch.
@@ -65,7 +62,7 @@ Prod is much simpler
 
 ```
 $ yarn prod
-$ yarn serve
+$ yarn prodserve
 ```
 
 There is no recompilation. This just builds and puts the code in `dist/`

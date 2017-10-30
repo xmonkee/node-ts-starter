@@ -14,6 +14,7 @@
         "@types/react": "^16.0.10",
         "@types/react-dom": "^16.0.1",
         "html-webpack-plugin": "^2.30.1",
+        "nodemon": "^1.12.1",
         "on-build-webpack": "^0.1.0",
         "ts-loader": "^2.3.7",
         "tslint": "^5.7.0",
@@ -24,9 +25,10 @@
         "webpack-node-externals": "^1.6.0"
     },
     "scripts": {
-        "prod": "webpack --config webpack.server.prod.js && webpack --config webpack.client.prod.js",
-        "dev": "webpack --watch --config webpack.server.dev.js",
-        "serve": "node dist/server.js",
+        "build": "webpack --config webpack.server.prod.js && webpack --config webpack.client.prod.js",
+        "prodserve": "node dist/server.js",
+        "dev": "webpack --watch --config webpack.server.dev.js & webpack --watch --config webpack.client.dev.js && fg",
+        "devserve": "nodemon dist/server.js",
         "lint": "tslint -c tslint.json 'src/**/*.[jt]s{,x}'"
     }
 }
