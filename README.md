@@ -61,8 +61,8 @@ recompile on watch.
 Prod is much simpler
 
 ```
-$ yarn prod
-$ yarn prodserve
+$ yarn build
+$ yarn serve
 ```
 
 There is no recompilation. This just builds and puts the code in `dist/`

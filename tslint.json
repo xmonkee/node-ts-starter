@@ -1,15 +1,18 @@
 {
-    "defaultSeverity": "error",
-    "extends": [
-        "tslint:recommended"
-    ],
-    "jsRules": {},
-    "rules": {
-        "quotemark": [true, "single"],
-        "only-arrow-functions": false,
-        "indent": [true, "tabs"],
-        "no-var-requires": false,
-        "no-console": false
-    },
-    "rulesDirectory": []
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "jsRules": {},
+  "rules": {
+    "quotemark": [true, "single"],
+    "only-arrow-functions": false,
+    "indent": [true, "tabs"],
+    "no-var-requires": false,
+    "no-console": false,
+    "no-empty-interface": false,
+    "interface-name": ["never-prefix"],
+    "object-literal-sort-keys": false
+  },
+  "rulesDirectory": []
 }

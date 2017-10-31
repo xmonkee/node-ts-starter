@@ -1,16 +1,9 @@
 import * as express from 'express';
-import models from './../models';
 
 const router = express.Router();
 
-router.get('/counter', function(req: express.Request, res: express.Response) {
-	const count = models.counter.get();
-	res.json({count});
-});
-
-router.post('/counter', function(req: express.Request, res: express.Response) {
-	const count = models.counter.inc();
-	res.json({count: models.counter.get()});
+router.post('/get-login-status', function(req: express.Request, res: express.Response) {
+	res.send({loggedIn: !!req.cookies.accessToken});
 });
 
 export default router;

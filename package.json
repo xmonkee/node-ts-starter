@@ -5,7 +5,11 @@
     "license": "MIT",
     "dependencies": {
         "axios": "^0.16.2",
+        "body-parser": "^1.18.2",
+        "cookie-parser": "^1.4.3",
         "express": "^4.16.2",
+        "moment": "^2.19.1",
+        "morgan": "^1.9.0",
         "react": "^16.0.0",
         "react-dom": "^16.0.0"
     },
@@ -26,7 +30,7 @@
     },
     "scripts": {
         "build": "webpack --config webpack.server.prod.js && webpack --config webpack.client.prod.js",
-        "prodserve": "node dist/server.js",
+        "serve": "node dist/server.js",
         "dev": "webpack --watch --config webpack.server.dev.js & webpack --watch --config webpack.client.dev.js && fg",
         "devserve": "nodemon dist/server.js",
         "lint": "tslint -c tslint.json 'src/**/*.[jt]s{,x}'"
